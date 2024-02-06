@@ -539,7 +539,7 @@ EOF
 	log "installation failed, removing $agh_dir"
 
 	rm -r "$agh_dir"
-	rm /opt/etc/init.d/S99AdGuardHome
+	#rm /opt/etc/init.d/S99AdGuardHome
 
 	# Some devices detected to have armv7 CPU face the compatibility
 	# issues with actual armv7 builds.  We should try to install the
