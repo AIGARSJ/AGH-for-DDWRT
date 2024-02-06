@@ -2,7 +2,7 @@
 
 # AdGuard Home Installation Script
 opkg update
-opkg install sudo ca-bundle curl wget wget-ssl tar unzip bind-tools
+opkg install sudo ca-bundle tar unzip bind-tools
 # Exit the script if a pipeline fails (-e), prevent accidental filename
 # expansion (-f), and consider undefined variables as errors (-u).
 set -e -f -u
