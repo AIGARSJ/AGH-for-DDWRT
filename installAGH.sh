@@ -586,8 +586,8 @@ if ! is_root
 then
 	rerun_with_root
 fi
-# Needs rights.
-fix_freebsd
+
+
 
 handle_existing
 
