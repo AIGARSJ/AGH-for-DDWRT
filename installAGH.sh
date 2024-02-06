@@ -514,7 +514,7 @@ handle_existing() {
 install_service() {
 	# Installing the service as root is required at least on FreeBSD.
 	use_sudo='0'
-	cat > /opt/etc/init.d/S99AdGuardHome <<EOF
+	cat > "/opt/etc/init.d/S99AdGuardHome" <<EOF
 #!/bin/sh
 
 ENABLED=yes
@@ -529,7 +529,7 @@ PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:
 . /opt/etc/init.d/rc.func
 
 EOF
-	chmod +x /opt/etc/init.d/S99AdGuardHome
+	chmod +x "/opt/etc/init.d/S99AdGuardHome"
 
 	if ( cd /opt/etc/init.d && maybe_sudo ./S99AdGuardHome start )
 	then
