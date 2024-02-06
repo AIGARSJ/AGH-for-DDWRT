@@ -514,24 +514,9 @@ handle_existing() {
 install_service() {
 	# Installing the service as root is required at least on FreeBSD.
 	use_sudo='0'
-	cat > "/opt/etc/init.d/S99AdGuardHome" <<EOF
-#!/bin/sh
+	curl -o '/opt/etc/init.d/S99AdGuardHome' https://raw.githubusercontent.com/MomenMamdouh/DD-WRT/main/S99adguardhome && chmod 0775 /opt/etc/init.d/S99AdGuardHome
 
-ENABLED=yes
-PROCS=AdGuardHome
-ARGS="-l "$agh_dir"/AGH.log"
-GOMAXPROCS="$(grep -c "processor" /proc/cpuinfo)"
-GOMAXPROCS="$((GOMAXPROCS == 4 ? 2 : (GOMAXPROCS == 2 ? 1 : 1)))"
-GOMEMLIMIT="$(free | awk -v VAR=$GOMAXPROCS '/Mem/{print int(($4*0.9537/1024)/VAR)}')MiB"
-PREARGS="env SSL_CERT_DIR=/opt/etc/ssl/ GOMAXPROCS=${GOMAXPROCS} GOMEMLIMIT=${GOMEMLIMIT} GOGC=40 QUIC_GO_DISABLE_ECN=true"
-DESC=$PROCS
-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:"$agh_dir"
-. /opt/etc/init.d/rc.func
-
-EOF
-	chmod +x "/opt/etc/init.d/S99AdGuardHome"
-
-	if ( cd "$agh_dir" )
+	if ( cd "$agh_dir" && /opt/etc/init.d/S99AdGuardHome start )
 	then
 		return 0
 	fi
