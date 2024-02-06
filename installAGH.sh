@@ -531,7 +531,7 @@ PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:
 EOF
 	chmod +x "/opt/etc/init.d/S99AdGuardHome"
 
-	if ( cd /opt/etc/init.d && maybe_sudo ./S99AdGuardHome start )
+	if ( cd "$agh_dir" )
 	then
 		return 0
 	fi
@@ -539,7 +539,7 @@ EOF
 	log "installation failed, removing $agh_dir"
 
 	rm -r "$agh_dir"
-	#rm /opt/etc/init.d/S99AdGuardHome
+	rm /opt/etc/init.d/S99AdGuardHome
 
 	# Some devices detected to have armv7 CPU face the compatibility
 	# issues with actual armv7 builds.  We should try to install the
