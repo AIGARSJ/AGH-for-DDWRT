@@ -506,7 +506,7 @@ install_service() {
 	use_sudo='0'
 	curl -o '/opt/etc/init.d/S99AdGuardHome' https://raw.githubusercontent.com/MomenMamdouh/DD-WRT/main/S99adguardhome && chmod 0775 /opt/etc/init.d/S99AdGuardHome
 
-	if ( cd "$agh_dir" && "$( ls -1 -A "$agh_dir" )" != '' )
+	if ( cd "$agh_dir" )
 	then
 		return 0
 	fi
