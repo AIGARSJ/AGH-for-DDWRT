@@ -516,21 +516,6 @@ install_service() {
 	rm -r "$agh_dir"
 	rm /opt/etc/init.d/S99AdGuardHome
 
-	# Some devices detected to have armv7 CPU face the compatibility
-	# issues with actual armv7 builds.  We should try to install the
-	# armv5 binary instead.
-	#
-	# See https://github.com/AdguardTeam/AdGuardHome/issues/2542.
-	if [ "$cpu" = 'armv7' ]
-	then
-		cpu='armv5'
-		reinstall='1'
-
-		log "trying to use $cpu cpu"
-
-		rerun_with_root
-	fi
-
 	error_exit 'cannot install AdGuardHome as a service'
 }
 
