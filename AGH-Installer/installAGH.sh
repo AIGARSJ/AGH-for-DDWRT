@@ -379,7 +379,7 @@ please, restart it with root privileges'
 # TODO(e.burkov): Try to avoid restarting.
 rerun_with_root() {
 	script_url=\
-'https://raw.githubusercontent.com/MomenMamdouh/DD-WRT/main/installAGH.sh'
+'https://raw.githubusercontent.com/MomenMamdouh/DD-WRT/main/AGH-Installer/installAGH.sh'
 	readonly script_url
 
 	r='-R'
