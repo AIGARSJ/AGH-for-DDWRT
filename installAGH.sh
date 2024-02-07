@@ -81,17 +81,13 @@ is_little_endian() {
 #
 # curl/wget are checked in function configure.
 check_required() {
-	required_darwin="unzip"
 	required_unix="tar"
-	readonly required_darwin required_unix
+	readonly required_unix
 
 	case "$os"
 	in
-	('freebsd'|'linux'|'openbsd')
+	('linux')
 		required="$required_unix"
-		;;
-	('darwin')
-		required="$required_darwin"
 		;;
 	(*)
 		# Generally shouldn't happen, since the OS has already been validated.
