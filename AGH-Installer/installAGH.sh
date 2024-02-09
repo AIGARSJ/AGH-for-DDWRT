@@ -379,7 +379,7 @@ please, restart it with root privileges'
 # TODO(e.burkov): Try to avoid restarting.
 rerun_with_root() {
 	script_url=\
-'https://raw.githubusercontent.com/MomenMamdouh/DD-WRT/main/AGH-Installer/installAGH.sh'
+'https://raw.githubusercontent.com/MomenMamdouh/AGH-for-DDWRT/main/AGH-Installer/installAGH.sh'
 	readonly script_url
 
 	r='-R'
@@ -504,7 +504,7 @@ handle_existing() {
 install_service() {
 	# Installing the service as root is required at least on FreeBSD.
 	use_sudo='0'
-	curl -o '/opt/etc/init.d/S99AdGuardHome' https://raw.githubusercontent.com/MomenMamdouh/DD-WRT/main/AGH-Installer/S99adguardhome && chmod 0775 /opt/etc/init.d/S99AdGuardHome
+	curl -o '/opt/etc/init.d/S99AdGuardHome' https://raw.githubusercontent.com/MomenMamdouh/AGH-for-DDWRT/main/AGH-Installer/S99adguardhome && chmod 0775 /opt/etc/init.d/S99AdGuardHome
 
 	if ( cd "$agh_dir" && /opt/etc/init.d/S99AdGuardHome start )
 	then
