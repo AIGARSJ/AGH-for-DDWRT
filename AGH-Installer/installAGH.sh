@@ -240,7 +240,7 @@ set_cpu() {
 		('i386'|'i486'|'i686'|'i786'|'x86')
 			cpu='386'
 			;;
-		('armv5l'|'armv6l'|'armv7l'|'armv7l')
+		('armv5l'|'armv6l'|'armv7l'|'arm')
 			cpu='armv5'
 			;;
 		('aarch64'|'arm64')
