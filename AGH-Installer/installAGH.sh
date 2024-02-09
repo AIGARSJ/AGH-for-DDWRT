@@ -262,7 +262,7 @@ set_cpu() {
 	# Validate.
 	case "$cpu"
 	in
-	('amd64'|'386'|'armv5'|'armv6'|'armv7'|'arm64')
+	('amd64'|'386'|'armv5'|'armv6'|'armv7'|'arm64'|'arm')
 		# All right, go on.
 		;;
 	('mips64le_softfloat'|'mips64_softfloat'|'mipsle_softfloat'|'mips_softfloat')
