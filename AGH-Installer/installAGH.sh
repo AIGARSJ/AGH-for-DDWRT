@@ -284,24 +284,27 @@ set_cpu() {
 # See https://github.com/AdguardTeam/AdGuardHome/issues/2443.
 
 
-# download_curl uses curl(1) to download a file.  The first argument is the URL.
+# download_curl uses curl(1) to download a file. The first argument is the URL.
 # The second argument is optional and is the output file.
 download_curl() {
 	curl_output="${2:-}"
 	if [ "$curl_output" = '' ]
 	then
+		# Add the `-k` flag to ignore SSL certificate validation
 		curl -L -S -s -k "$1"
 	else
-		curl -L -S -o -k "$curl_output" -s "$1"
+		# Add the `-k` flag to ignore SSL certificate validation
+		curl -L -S -o "$curl_output" -s -k "$1"
 	fi
 }
 
-# download_wget uses wget(1) to download a file.  The first argument is the URL.
+# download_wget uses wget(1) to download a file. The first argument is the URL.
 # The second argument is optional and is the output file.
 download_wget() {
 	wget_output="${2:--}"
 
-	wget --no-verbose -O "$wget_output" "$1"
+	# Add the `--no-check-certificate` option to skip SSL certificate validation
+	wget --no-verbose --no-check-certificate -O "$wget_output" "$1"
 }
 
 
@@ -397,7 +400,7 @@ rerun_with_root() {
 	v='-V'
 	if [ "$verbose" -eq '1' ]
 	then
-		v='-k'
+		v='-v'
 	fi
 
 	readonly r u v
