@@ -290,9 +290,9 @@ download_curl() {
 	curl_output="${2:-}"
 	if [ "$curl_output" = '' ]
 	then
-		curl -L -S -s "$1"
+		curl -L -S -s -k "$1"
 	else
-		curl -L -S -o "$curl_output" -s "$1"
+		curl -L -S -o -k "$curl_output" -s "$1"
 	fi
 }
 
