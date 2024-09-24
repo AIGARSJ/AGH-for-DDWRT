@@ -397,7 +397,7 @@ rerun_with_root() {
 	v='-V'
 	if [ "$verbose" -eq '1' ]
 	then
-		v='-v'
+		v='-k'
 	fi
 
 	readonly r u v
